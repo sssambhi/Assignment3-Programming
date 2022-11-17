@@ -33,7 +33,9 @@ int main(void)
 	double expected;
 	double actual;
 
-	// test 1
+
+	// test 1:		basic array
+
 	printf("\ntest 1, basic array:\n ");
 
 	expected = 6;
@@ -46,7 +48,7 @@ int main(void)
 		printf("fail\n");
 
 
-	// test 2
+	// test 2:		negative plus positive
 	printf("\ntest 2, negatives plus positive:\n ");
 
 	expected = 4;
@@ -59,7 +61,7 @@ int main(void)
 		printf("fail\n");
 
 
-	// test 3
+	// test 3:		negative plus negative
 	printf("\ntest 3, negatives plus negative:\n ");
 
 	expected = -6;
@@ -72,7 +74,7 @@ int main(void)
 		printf("fail\n");
 
 
-	// test 4
+	// test 4:		duplicate numbers in array
 	printf("\ntest 4, duplicates in array:\n ");
 
 	expected = 6;
@@ -85,8 +87,7 @@ int main(void)
 		printf("fail\n");
 
 
-
-	// test 5
+	// test 5:		basic array with switched orders (found bugs once corrected)
 	printf("\ntest 5, basic array, orders switched:\n ");
 
 	expected = 6;
@@ -99,33 +100,31 @@ int main(void)
 		printf("fail\n");
 
 
-	// test 6
+	// test 6:		decimal numbers simple (found bugs with rounding)
 	printf("\ntest 6, decimal numbers ex.(1.2):\n ");
 
-	expected = 6.2;
+	expected = 6.20;
 	double array6[ARRAYSIZE] = { 5.1, 4.1, 3.2, 2.1, 1.1 };
-	actual = (SumOfLowestLargest(array5, ARRAYSIZE));
+	actual = (SumOfLowestLargest(array6, ARRAYSIZE));
 	
-	printf("%lf", actual);
-
 	if (expected == actual)
 		printf("passed\n");
 	else
 		printf("fail\n");
 
 
-
-	// test 7
+	// test 7:		decimal numbers extreme precision (solved with rounding)
 	printf("\ntest 7, decimal numbers extreme precision ex(5.213123131312312312):\n ");
 
-	expected = 6.213123131312312312;
-	double array7[ARRAYSIZE] = { 5.213123131312312312, 2, 2, 1,  2.213123131312312312 };
-	actual = (SumOfLowestLargest(array5, ARRAYSIZE));
+	expected = 6.43;
+	double array7[ARRAYSIZE] = { 5.213123131312312312, 2, 2, 2,  1.213123131312312312 };
+	actual = (SumOfLowestLargest(array7, ARRAYSIZE));
 	
-	printf("%lf", actual);
-
 	if (expected == actual)
 		printf("passed\n");
 	else
 		printf("fail\n");
+
+	return 0;
 }
+

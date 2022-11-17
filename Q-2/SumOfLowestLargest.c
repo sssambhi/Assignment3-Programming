@@ -24,7 +24,10 @@ o Documentation: 4.0/4.0 (The documentation is well written and clearly explains
 
 
 #define _CRT_SECURE_NO_WARNINGS
+#define ROUND_TWO_PLACES 100
+
 #include <stdio.h>
+#include <math.h>
 
 double SumOfLowestLargest(double array[], double size_of_array)
 {
@@ -47,6 +50,8 @@ double SumOfLowestLargest(double array[], double size_of_array)
 
 	//add the lowest and largest of the array together into the return value. 
 	sum = highest + lowest;
+
+	sum = round(sum * ROUND_TWO_PLACES) / ROUND_TWO_PLACES; //for decimal numbers
 
 	return sum; //return the sum to program 
 }

@@ -92,4 +92,6 @@ int main(void)
 		printf("\npassed\n");
 	else
 		printf("\nfail\n"); //does not match expected
+
+	return 0;
 }
