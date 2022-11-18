@@ -1,9 +1,9 @@
 #pragma once
 #include <stdbool.h>
 
-// header file to assignment 3, question 4
+// header file to assignment 3 REFACTOR, question 4
 // PROG71985 - F22
-// Naryan Sambhi - oct 2022
+// Naryan Sambhi - NOV 2022
 
 //max size of names
 #define MAXSIZE  10
@@ -30,12 +30,15 @@ typedef struct student
 
 STUDENT CreateStudent(int birthyear, int birthmonth, int radom_code, char* First_name, char* Middle_name, char* Last_name);
 
-void PrintStudent(STUDENT student);
-
-bool GetFirstNameFromStudentWithReturn(STUDENT s, char* buffer);
-
-bool GetMiddleNameFromStudentWithReturn(STUDENT s, char* buffer);
-
-bool GetLastNameFromStudentWithReturn(STUDENT s, char* buffer);
-
 PrintArrayOfStudents(STUDENT s[]);
+
+///CURRENTLY UNUSED///
+
+//void PrintStudent(STUDENT student);
+
+//bool GetFirstNameFromStudentWithReturn(STUDENT s, char* buffer);
+
+//bool GetMiddleNameFromStudentWithReturn(STUDENT s, char* buffer);
+
+//bool GetLastNameFromStudentWithReturn(STUDENT s, char* buffer);
+

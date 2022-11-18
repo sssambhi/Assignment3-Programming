@@ -1,7 +1,7 @@
 
-// tests file to assignment 3, Q4
+// tests file to assignment 3 REFACTOR, Q4
 // PROG71985 - F22
-// Naryan Sambhi - oct 2022
+// Naryan Sambhi - NOV 2022
 //
 // 
 // goal:
@@ -49,72 +49,40 @@ o Documentation : 4.0 / 4.0 (The documentation is well written and clearly expla
 
 
 
+	/*
+	if(GetFirstNameFromStudentWithReturn(s[0], buffer))
+		printf("BUFFER: %s\n", buffer);
+	if (GetMiddleNameFromStudentWithReturn(s[0], buffer))
+		printf("BUFFER: %s\n", buffer);
+	if (GetLastNameFromStudentWithReturn(s[0], buffer))
+		printf("BUFFER: %s\n", buffer);
+*/
+
 
 #define _CRT_SECURE_NO_WARNINGS
 #include "CreateStudent.h"
 #include <stdio.h>
+#include <stdlib.h>
+
 
 int main(void)
 {
-
-
-
-//same entry for different students created, printed then repeated.
-	char buffer[MAXSIZE];
-
+	//makes array of structs
 	STUDENT s[5];
 
-
-	STUDENT Jacky = CreateStudent(1982, 10, 9328, "Jacky", "James", "Doe");
+	//assigns to array
+	s[0] = CreateStudent(1982, 10, 9328, "Jacky", "James", "Doe");
 	
+	s[1] = CreateStudent(2001, 5, 3215, "Jacob", "Fat", "Coolman");
 
-	if(GetFirstNameFromStudentWithReturn(Jacky, buffer))
-		printf("BUFFER: %s\n", buffer);
-	if (GetMiddleNameFromStudentWithReturn(Jacky, buffer))
-		printf("BUFFER: %s\n", buffer);
-	if (GetLastNameFromStudentWithReturn(Jacky, buffer))
-		printf("BUFFER: %s\n", buffer);
+	s[2] = CreateStudent(2005, 12, 5436, "Billy", "Bob", "Joe");
 
+	s[3] = CreateStudent(1990, 5, 4326, "James", "Pineapple", "Bush");
 
+	s[4] = CreateStudent(2003, 7, 1932, "Jerry", "", "Write");
 
-	PrintStudent(Jacky);
-
-	s[0] = Jacky;
-
-
-
-	STUDENT Jacob = CreateStudent(2001, 5, 3215, "Jacob", "Fat", "Coolman");
-
-	PrintStudent(Jacob);
-
-	s[1] = Jacob;
-
-
-	STUDENT Billy = CreateStudent(2005, 12, 5436, "Billy", "Bob", "Joe");
-
-	PrintStudent(Billy);
-
-	s[2] = Billy;
-
-
-	STUDENT James = CreateStudent(1990, 5, 4326, "James", "Pineapple", "Bush");
-
-	PrintStudent(James);
-
-	s[3] = James;
-
-
-	STUDENT Ozzy = CreateStudent(2003, 7, 1932, "Ozzy", "", "Wineglass");
-
-	PrintStudent(Ozzy);
-
-	s[4] = Ozzy;
-
-
-
-
+	//prints array
 	PrintArrayOfStudents(s);
-
 
 	return 0;
 
