@@ -9,23 +9,33 @@
 #define MAXSIZE  10
 
 //struct student
+
+typedef struct name
+{
+    char first_name[MAXSIZE];
+    char middle_name[MAXSIZE];
+    char last_name[MAXSIZE];
+
+}NAME;
+
 typedef struct student
 {
-	//struct for student numbers 
+    int birthyear;
+    int birthmonth;
+    int random_code;
 
-	int birthyear;
-	int birthmonth;
-	int random_code;
+    NAME student;
 
-	char first_name[MAXSIZE];
-	char middle_name[MAXSIZE];
- 	char last_name[MAXSIZE];
-
-} STUDENT;
+}STUDENT;
 
 STUDENT CreateStudent(int birthyear, int birthmonth, int radom_code, char* First_name, char* Middle_name, char* Last_name);
 
-//bool GetNameWithReturn(STUDENT, char*);
-
 void PrintStudent(STUDENT student);
 
+bool GetFirstNameFromStudentWithReturn(STUDENT s, char* buffer);
+
+bool GetMiddleNameFromStudentWithReturn(STUDENT s, char* buffer);
+
+bool GetLastNameFromStudentWithReturn(STUDENT s, char* buffer);
+
+PrintArrayOfStudents(STUDENT s[]);

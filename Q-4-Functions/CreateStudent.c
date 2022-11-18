@@ -31,30 +31,88 @@
 // without middle name ends output line at end of the first name
 
 
+#define _CRT_SECURE_NO_WARNINGS
+
 
 #include "CreateStudent.h"
 #include <stdio.h>
+#include <string.h>
 
 //using structs to create student profile 
 STUDENT CreateStudent(int Birthyear, int Birthmonth, int Random_code, char* First_name, char* Middle_name, char* Last_name)
 {
-	STUDENT student;
+	STUDENT s;
 
-	student.birthyear = Birthyear;
-	student.birthmonth = Birthmonth;
-	student.random_code = Random_code;
+	s.birthyear = Birthyear;
+	s.birthmonth = Birthmonth;
+	s.random_code = Random_code;
 
-	strncpy(student.first_name, First_name, MAXSIZE);
-	strncpy(student.middle_name, Middle_name, MAXSIZE);
-	strncpy(student.last_name, Last_name, MAXSIZE);
+	strncpy(s.student.first_name, First_name, MAXSIZE);
+	strncpy(s.student.middle_name, Middle_name, MAXSIZE);
+	strncpy(s.student.last_name, Last_name, MAXSIZE);
 
-	return student;
+	return s;
 }
 
+
 //print name
-void PrintStudent(STUDENT student)
+void PrintStudent(STUDENT s)
 {
-	printf("STUDENT: %d%02d%d - %s, %s %.1s.\n", student.birthyear, student.birthmonth, student.random_code, student.last_name, student.first_name, student.middle_name);
+	if (strlen(s.student.middle_name) > 0)
+		printf("STUDENT: %d%02d%d - %s, %s %.1s.\n", s.birthyear, s.birthmonth, s.random_code, s.student.last_name, s.student.first_name, s.student.middle_name);
+	else
+	printf("STUDENT: %d%02d%d - %s, %s\n", s.birthyear, s.birthmonth, s.random_code, s.student.last_name, s.student.first_name);
 }
 		//	2001041234 – LastName, FirstName MiddleInitial.
 
+
+bool GetFirstNameFromStudentWithReturn(STUDENT s, char* buffer)
+{
+	strncpy(buffer, s.student.first_name, MAXSIZE);
+	buffer[MAXSIZE - 1] = '\0';
+
+	if (strlen(buffer) > 0)
+		return true;
+	else
+		return false;
+}
+
+bool GetMiddleNameFromStudentWithReturn(STUDENT s, char* buffer)
+{
+	strncpy(buffer, s.student.middle_name, MAXSIZE);
+	buffer[MAXSIZE - 1] = '\0';
+
+	if (strlen(buffer) > 0)
+		return true;
+	else
+		return false;
+}
+
+bool GetLastNameFromStudentWithReturn(STUDENT s, char* buffer)
+{
+	strncpy(buffer, s.student.last_name, MAXSIZE);
+	buffer[MAXSIZE - 1] = '\0';
+
+	if (strlen(buffer) > 0)
+		return true;
+	else
+		return false;
+}
+
+
+PrintArrayOfStudents(STUDENT s[])
+{
+	for (int i = 0; i < 5; i++)
+	{
+		printf("\n~~~\n");
+		printf("Student Number: %d%02d%d\n", s[i].birthyear, s[i].birthmonth, s[i].random_code);
+		
+		if (strlen(s[i].student.middle_name) > 0)
+			printf("Name: %s, %s, %.1s.\n", s[i].student.last_name, s[i].student.first_name, s[i].student.middle_name);
+		else
+			printf("Name: %s, %s\n", s[i].student.last_name, s[i].student.first_name);
+
+	}
+}
+
+//	2001041234 – LastName, FirstName MiddleInitial.

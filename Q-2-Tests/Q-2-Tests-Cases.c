@@ -20,6 +20,7 @@ o Documentation: 4.0/4.0 (The documentation is well written and clearly explains
 //CHANGES
 //THE PROGRAM DID NOT ALWAYS DISPLAY CORRECT RESULTS, THIS HAS BEEN FIXED IN THIS VERSION
 //CREATED ACCURATE TEST CASES USING EVALUATION
+//ROUNDED TO NEAREST .2 DECIMALS
 
 #include <stdio.h>
 #include "SumOfLowestLargest.h"
